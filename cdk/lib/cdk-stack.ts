@@ -6,11 +6,6 @@ export class CdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const bucket = new aws_s3.Bucket(this, 'adebski-lambda-java-common-misconceptions', {
-      blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
-      bucketName: 'adebski-lambda-java-common-misconceptions'
-    });
-
     const helloWorldLayer = new aws_lambda.LayerVersion(this, 'hello-world-layer', {
       compatibleRuntimes: [
         aws_lambda.Runtime.JAVA_11
