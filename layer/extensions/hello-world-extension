@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -euo pipefail
+
+OWN_FILENAME="$(basename $0)"
+LAMBDA_EXTENSION_NAME="$OWN_FILENAME" # (external) extension name has to match the filename
+
+# Invoke as external extension
+echo "${LAMBDA_EXTENSION_NAME} launching extension"
+java -jar /opt/layer-1.0.jar
