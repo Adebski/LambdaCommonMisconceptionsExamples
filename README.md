@@ -1,6 +1,8 @@
 # 1. Overview
 This repository holds code used for my presentation "How to avoid common mistakes and misconceptions when working with Java on AWS Lambda".
 
+Slides from JDD 2022: https://www.slideshare.net/adebski/jdd2022-how-to-avoid-common-mistakes-and-misconceptions-when-working-with-java-on-aws-lambda.
+
 # 2. Tools needed to compiple and deploy thecode
 * JDK11+
 * CDK CLI and all of its dependencies installed
