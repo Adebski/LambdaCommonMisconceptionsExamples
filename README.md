@@ -22,3 +22,10 @@ you can manually download the depndency. This should resolve the issue.
 ```
 npm i --save-dev @types/node
 ```
+
+# 3. Additional reading
+Using AWS Lambda with GraalVM:
+* https://github.com/aws-samples/serverless-graalvm-demo
+* https://www.formkiq.com/blog/tutorials/aws-lambda-graalvm/
+* https://guides.micronaut.io/latest/mn-application-aws-lambda-graalvm-gradle-java.html
+* https://shinesolutions.com/2021/08/30/improving-cold-start-times-of-java-aws-lambda-functions-using-graalvm-and-native-images/
