@@ -24,6 +24,16 @@ export class CdkStack extends Stack {
       reservedConcurrentExecutions: 10
     });
 
+    const lambdaHelloWorldNet = new aws_lambda.Function(this, 'lambda-net-common-misconceptions-hello-world', {
+      description: new Date().toISOString(),
+      runtime: aws_lambda.Runtime.DOTNET_6,
+      memorySize: 256,
+      handler: "lambda-example::lambdaExample.Function::FunctionHandler",
+      code: aws_lambda.Code.fromAsset("../assets/handlers-net.zip"),
+      timeout: Duration.seconds(30),
+      reservedConcurrentExecutions: 10
+    });
+
     const lambdaHelloWorldWithExtension = new aws_lambda.Function(this, 'lambda-java-common-misconceptions-hello-world-extension', {
       description: new Date().toISOString(),
       runtime: aws_lambda.Runtime.JAVA_11,

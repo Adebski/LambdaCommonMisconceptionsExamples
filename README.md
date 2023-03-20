@@ -7,6 +7,8 @@ Slides from JDD 2022: https://www.slideshare.net/adebski/jdd2022-how-to-avoid-co
 * JDK11+
 * CDK CLI and all of its dependencies installed
 * AWS account configured in the `~/.aws/config` file, the CDK code assumes the account is defined there
+* Installed .net 6 SDK and runtime. Follow instructions from https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-1804.
+* Install the `Amazon.Lambda.Tools` extensions to the .NET CLI: `dotnet tool install -g Amazon.Lambda.Tools`.
 
 You can execute `package-and-deploy.sh` to compiple, package, and execute the code through the CDK to your
 AWS account. 

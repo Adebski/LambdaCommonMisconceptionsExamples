@@ -4,3 +4,6 @@ target/
 
 assets/*.jar
 assets/*.zip
+
+handlers-net/obj
+handlers-net/bin
