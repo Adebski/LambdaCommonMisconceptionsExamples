@@ -12,5 +12,7 @@
     <PackageReference Include="AWSSDK.Lambda" Version="3.7.104.3" />
     <PackageReference Include="AWSXRayRecorder.Core" Version="2.13.0" />
     <PackageReference Include="AWSXRayRecorder.Handlers.AwsSdk" Version="2.11.0" />
+    <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 </Project>

@@ -21,7 +21,7 @@ export class CdkStack extends Stack {
       handler: "com.adebski.LambdaJavaCommonMisconceptionsHelloWorld",
       code: aws_lambda.Code.fromAsset("../assets/handlers-1.0.jar"),
       timeout: Duration.seconds(30),
-      reservedConcurrentExecutions: 10
+      reservedConcurrentExecutions: 3
     });
 
     const lambdaHelloWorldNet = new aws_lambda.Function(this, 'lambda-net-common-misconceptions-hello-world', {
@@ -31,7 +31,7 @@ export class CdkStack extends Stack {
       handler: "lambda-example::lambdaExample.Function::FunctionHandler",
       code: aws_lambda.Code.fromAsset("../assets/handlers-net.zip"),
       timeout: Duration.seconds(30),
-      reservedConcurrentExecutions: 10
+      reservedConcurrentExecutions: 3
     });
 
     const lambdaHelloWorldWithExtension = new aws_lambda.Function(this, 'lambda-java-common-misconceptions-hello-world-extension', {
@@ -41,7 +41,7 @@ export class CdkStack extends Stack {
       handler: "com.adebski.LambdaJavaCommonMisconceptionsHelloWorld",
       code: aws_lambda.Code.fromAsset("../assets/handlers-1.0.jar"),
       timeout: Duration.seconds(30),
-      reservedConcurrentExecutions: 10,
+      reservedConcurrentExecutions: 3,
       layers: [helloWorldLayer]
     });
 
@@ -52,7 +52,17 @@ export class CdkStack extends Stack {
       handler: "com.adebski.LambdaJavaCommonMisconceptionsMultiplePaths",
       code: aws_lambda.Code.fromAsset("../assets/handlers-1.0.jar"),
       timeout: Duration.seconds(30),
-      reservedConcurrentExecutions: 10
+      reservedConcurrentExecutions: 3
+    });
+
+    const lambdaNetMultiplePaths = new aws_lambda.Function(this, 'lambda-net-common-misconceptions-multiple-paths', {
+      description: new Date().toISOString(),
+      runtime: aws_lambda.Runtime.DOTNET_6,
+      memorySize: 256,
+      handler: "lambda-example::lambdaExample.FunctionMultiplePaths::FunctionHandler",
+      code: aws_lambda.Code.fromAsset("../assets/handlers-net.zip"),
+      timeout: Duration.seconds(30),
+      reservedConcurrentExecutions: 3
     });
 
     const lambdaMultiplePathsProvisionedConcurrency =
@@ -63,11 +73,26 @@ export class CdkStack extends Stack {
         handler: "com.adebski.LambdaJavaCommonMisconceptionsMultiplePathsProvisionedConcurrency",
         code: aws_lambda.Code.fromAsset("../assets/handlers-1.0.jar"),
         timeout: Duration.seconds(30),
-        reservedConcurrentExecutions: 10
+        reservedConcurrentExecutions: 3
       });
     const alias = new aws_lambda.Alias(this, 'lambda-java-common-misconceptions-multiple-paths-provisioned-concurrency-alias', {
       aliasName: 'prod',
       version: lambdaMultiplePathsProvisionedConcurrency.currentVersion,
+      provisionedConcurrentExecutions: 1
+    });
+
+    const lambdaNetMultiplePathsProvsionedConcurrency = new aws_lambda.Function(this, 'lambda-net-common-misconceptions-multiple-paths-provisioned-concurrency', {
+      description: new Date().toISOString(),
+      runtime: aws_lambda.Runtime.DOTNET_6,
+      memorySize: 256,
+      handler: "lambda-example::lambdaExample.FunctionMultiplePathsProvisionedConcurrency::FunctionHandler",
+      code: aws_lambda.Code.fromAsset("../assets/handlers-net.zip"),
+      timeout: Duration.seconds(30),
+      reservedConcurrentExecutions: 3
+    });
+    const aliasNet = new aws_lambda.Alias(this, 'lambda-net-common-misconceptions-multiple-paths-provisioned-concurrency-alias', {
+      aliasName: 'prod-net',
+      version: lambdaNetMultiplePathsProvsionedConcurrency.currentVersion,
       provisionedConcurrentExecutions: 1
     });
   }
