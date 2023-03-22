@@ -49,8 +49,10 @@ namespace lambdaExample
             // of the provisioned concurrency function lifecycle
             for (int i = 0; i < SAMPLE_ITERATIONS; ++i)
             {
-                var exampleInput = new Dictionary<string, string> { { "testNumber", i.ToString() } };
-                var exampleOutput = FunctionMultiplePathsProvisionedConcurrency.CalculateResult(exampleInput);
+                var exampleInput = 
+                    new Dictionary<string, string> { { "testNumber", i.ToString() } };
+                var exampleOutput = 
+                    FunctionMultiplePathsProvisionedConcurrency.CalculateResult(exampleInput);
                 LambdaLogger.Log($"{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.ff")}: {exampleOutput}");
             }
 
