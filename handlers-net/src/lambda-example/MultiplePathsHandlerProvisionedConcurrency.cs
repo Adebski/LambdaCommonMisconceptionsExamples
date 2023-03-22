@@ -45,7 +45,8 @@ namespace lambdaExample
         {
             this.constructTimeStart = System.Environment.TickCount;
             LambdaLogger.Log($"{DateTime.Now.ToString($"yyyy/MM/dd HH:mm:ss.ff")}: pre-warming with {SAMPLE_ITERATIONS} iterations");
-            // Pre-warming the most common code paths in the function handler constructor to take advantage
+            // Pre-warming the most common code paths 
+            // in the function handler constructor to take advantage
             // of the provisioned concurrency function lifecycle
             for (int i = 0; i < SAMPLE_ITERATIONS; ++i)
             {
